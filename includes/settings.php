@@ -172,10 +172,10 @@ function kswl_usage_guide_section_callback() {
 				</tr>
 				<tr>
 					<td style="padding: 10px; border-bottom: 1px solid #ddd;"><code>text</code></td>
-					<td style="padding: 10px; border-bottom: 1px solid #ddd; color: #d63638;"><strong>必須</strong></td>
+					<td style="padding: 10px; border-bottom: 1px solid #ddd; color: #d63638;"><strong>※</strong></td>
 					<td style="padding: 10px; border-bottom: 1px solid #ddd;">
 						表示するテキスト<br>
-						<span style="color: #666; font-size: 12px;">例: text="詳しくはこちら"</span>
+						<span style="color: #666; font-size: 12px;">例: text="詳しくはこちら" ※idonly="on"の場合は不要</span>
 					</td>
 				</tr>
 				<tr>
@@ -208,6 +208,14 @@ function kswl_usage_guide_section_callback() {
 					<td style="padding: 10px; border-bottom: 1px solid #ddd;">
 						リンクの開き方（_blank または _self）<br>
 						<span style="color: #666; font-size: 12px;">_blank = 新しいタブ、_self = 同じタブ（デフォルト）</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding: 10px; border-bottom: 1px solid #ddd;"><code>idonly</code></td>
+					<td style="padding: 10px; border-bottom: 1px solid #ddd;">任意</td>
+					<td style="padding: 10px; border-bottom: 1px solid #ddd;">
+						データ属性のみ出力（on/1で有効化）<br>
+						<span style="color: #666; font-size: 12px;">例: idonly="on" → data-kswl-link-id="0" のみ出力</span>
 					</td>
 				</tr>
 			</table>
@@ -245,6 +253,17 @@ function kswl_usage_guide_section_callback() {
 				<p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
 					※ classを指定すると、プラグインのスタイルは適用されません。<br>
 					別途CSSでmy-custom-buttonクラスのスタイルを定義してください。
+				</p>
+			</div>
+
+			<div style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 4px;">
+				<h4 style="margin: 0 0 10px 0; font-size: 14px;">🔧 データ属性のみ出力</h4>
+				<code style="background: white; padding: 5px 10px; display: inline-block; border-radius: 3px;">
+					[kswl_link idonly="on" url="https://example.com" target="_blank"]
+				</code>
+				<p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
+					出力: data-kswl-link-id="0"<br>
+					独自のHTML要素にリンク機能を追加したい場合に便利です。
 				</p>
 			</div>
 		</div>

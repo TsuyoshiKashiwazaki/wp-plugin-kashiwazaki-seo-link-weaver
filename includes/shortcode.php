@@ -28,6 +28,7 @@ function kswl_shortcode_handler( $atts, $content = null ) {
 			'target' => '',
 			'design' => 'text', // design 属性は class 属性がない場合のフォールバックとして残す
 			'class'  => '',     // class 属性
+			'idonly' => '',     // idonly 属性
 		),
 		$atts,
 		'kswl_link'
@@ -65,6 +66,11 @@ function kswl_shortcode_handler( $atts, $content = null ) {
 	if ( $index === false ) {
 		$kswl_link_data[] = $current_data;
 		$index = count( $kswl_link_data ) - 1;
+	}
+
+	// --- idonly モードの処理 ---
+	if ( $atts['idonly'] === '1' || $atts['idonly'] === 'on' ) {
+		return sprintf( 'data-kswl-link-id="%d"', absint( $index ) );
 	}
 
 	// --- スタイルとクラスの決定 ---

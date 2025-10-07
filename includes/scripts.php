@@ -45,22 +45,17 @@ function kswl_print_footer_script() {
                     if (typeof urlProcessor === 'function') {
                          return urlProcessor(processedStr);
                     } else {
-                        console.error('Kashiwazaki SEO Link Weaver Error: URL processing function not available.');
                         return processedStr;
                     }
                 } catch (e) {
-                    console.error('Kashiwazaki SEO Link Weaver Error: Failed to process URL string:', processedStr, e);
                     return null;
                 }
             }
 
             document.body.addEventListener('click', function(event) {
-                // ★★★ 検出対象をクラス名ではなくデータ属性に変更 ★★★
                 const linkElement = event.target.closest('[data-kswl-link-id]');
 
-                // ★★★ 属性名も変更 ★★★
                 if (linkElement && linkElement.hasAttribute('data-kswl-link-id')) {
-                    // ★★★ 属性名も変更 ★★★
                     const linkId = parseInt(linkElement.getAttribute('data-kswl-link-id'), 10);
 
                     if (!isNaN(linkId) && linkId >= 0 && linkId < kswlLinkData.length) {
@@ -74,7 +69,6 @@ function kswl_print_footer_script() {
                             }
 
                             if (url) {
-                                // ★★★ linkInfo から target を取得 ★★★
                                 const target = linkInfo.target || '_self';
 
                                 if (target && target !== '_self' && target !== '') {
@@ -82,12 +76,8 @@ function kswl_print_footer_script() {
                                 } else {
                                     window.location.href = url;
                                 }
-                            } else if (kswlProcessUrls) {
-                                console.warn('Kashiwazaki SEO Link Weaver Warning: Could not reveal URL for link ID:', linkId);
                             }
                         }
-                    } else {
-                        console.warn('Kashiwazaki SEO Link Weaver Warning: Invalid link ID found:', linkId);
                     }
                 }
             });

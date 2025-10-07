@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Kashiwazaki SEO Link Weaver
  * Description: ショートコード [kswl_link] を使用して、カスタマイズ可能なJavaScript駆動のクリック可能要素を作成します。リンクのターゲット、スタイル、クラスを制御し、オプションでURLを難読化できます。
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: 柏崎剛
  * Author URI: https://www.tsuyoshikashiwazaki.jp
  * Text Domain: kashiwazaki-seo-link-weaver

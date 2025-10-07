@@ -4,7 +4,7 @@ Tags: link, shortcode, javascript, seo, custom link, button, style, obfuscation,
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ JavaScript駆動のカスタマイズ可能なリンクを作成。SEO対策や�
 **独自デザインのリンク：**
 `[kswl_link text="特別オファー" url="/offer" class="my-custom-button"]`
 
+**データ属性のみ出力：**
+`[kswl_link idonly="on" url="https://example.com" target="_blank"]`
+出力: `data-kswl-link-id="0"`
+
 = こんな方におすすめ =
 
 * SEO対策でリンクの見せ方を工夫したい
@@ -88,15 +92,16 @@ JavaScript駆動のカスタマイズ可能なリンクを作成。SEO対策や�
 最も基本的な形：
 `[kswl_link text="リンクテキスト" url="https://example.com"]`
 
-必須属性は `text` と `url` の2つだけです。
+必須属性は `url` です。`text` は通常必須ですが、`idonly="on"` の場合は不要です。
 
 = 利用可能な属性一覧 =
 
-* **text** (必須) - 表示するテキスト
+* **text** (※) - 表示するテキスト（idonly="on"の場合は不要）
 * **url** (必須) - リンク先のURL
 * **design** (任意) - "text" または "button"（classがない場合のみ有効）
 * **class** (任意) - カスタムCSSクラス（指定するとdesignは無効）
 * **target** (任意) - "_blank" または "_self"（デフォルト）
+* **idonly** (任意) - "on"または"1"を指定するとデータ属性のみ出力
 
 = classとdesignの違いは？ =
 
@@ -109,6 +114,10 @@ JavaScript駆動のカスタマイズ可能なリンクを作成。SEO対策や�
 * プラグインのスタイルは一切適用されません
 * 指定したクラス名のみが付与されます
 * CSSで完全に独自のデザインを実装できます
+
+= idonly属性は何に使いますか？ =
+
+`idonly="on"` を指定すると、`data-kswl-link-id="n"` という属性文字列のみが出力されます。これにより、独自のHTML要素に直接この属性を追加して、JavaScriptによるクリック処理を適用できます。完全にカスタムなマークアップでリンク機能を実装したい場合に便利です。（`idonly="1"` も互換性のためサポートされています）
 
 = URL難読化は安全ですか？ =
 
@@ -142,6 +151,11 @@ URL難読化は基本的なBase64エンコーディングを使用しており�
 
 == Changelog ==
 
+= 1.0.1 =
+* Add: idonly="on" パラメータを追加（データ属性のみ出力機能、"1"も互換性のためサポート）
+* Improve: デバッグコメント・コンソール出力を除去
+* Improve: ドキュメントを更新（README.md、readme.txt、管理画面）
+
 = 1.0.0 =
 * 初回リリース
 * ショートコード `[kswl_link]` の実装
@@ -154,6 +168,9 @@ URL難読化は基本的なBase64エンコーディングを使用しており�
 * 使いやすい管理画面UI
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+idonly="on" パラメータを追加し、データ属性のみを出力できるようになりました。デバッグコードを除去し、ドキュメントを更新しました。
 
 = 1.0.0 =
 Kashiwazaki SEO Link Weaverの初回リリースです。JavaScript駆動のカスタマイズ可能なリンクを作成できます。

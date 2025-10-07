@@ -3,7 +3,7 @@
 [![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.2%2B-purple.svg)](https://php.net/)
 [![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)](https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-link-weaver/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.1-orange.svg)](https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-link-weaver/releases)
 
 JavaScript駆動のカスタマイズ可能なリンクを作成するWordPressプラグイン。SEO対策やデザイン制御に最適なショートコードソリューション。
 
@@ -38,11 +38,14 @@ JavaScript駆動のカスタマイズ可能なリンクを作成するWordPress�
 
 | 属性 | 必須 | 説明 | 例 |
 |------|------|------|-----|
-| text | ✅ | 表示するテキスト | `text="クリック"` |
+| text | ※ | 表示するテキスト | `text="クリック"` |
 | url | ✅ | リンク先URL | `url="https://example.com"` |
 | design | ❌ | デザインタイプ（text/button） | `design="button"` |
 | class | ❌ | カスタムCSSクラス | `class="my-button"` |
 | target | ❌ | 開き方（_blank/_self） | `target="_blank"` |
+| idonly | ❌ | データ属性のみ出力（on/1で有効化） | `idonly="on"` |
+
+※ `text` 属性は `idonly="on"` の場合は不要です。
 
 ### 使用例
 
@@ -66,6 +69,14 @@ JavaScript駆動のカスタマイズ可能なリンクを作成するWordPress�
 [kswl_link text="特別オファー" url="/offer" class="custom-cta"]
 ```
 
+**データ属性のみ出力：**
+```
+[kswl_link idonly="on" url="https://example.com" target="_blank"]
+```
+出力: `data-kswl-link-id="0"`
+
+この属性は、独自のHTML要素にリンク機能を追加したい場合に便利です。出力された属性を任意の要素に直接記述することで、JavaScriptによるクリック処理が適用されます。
+
 ## 技術仕様
 
 ### システム要件
@@ -84,6 +95,11 @@ JavaScript駆動のカスタマイズ可能なリンクを作成するWordPress�
 - 保存内容: URL難読化設定、デフォルトスタイル
 
 ## 更新履歴
+
+### Version 1.0.1 (2025-10-07)
+- idonly="on" パラメータを追加（データ属性のみ出力機能、"1"も互換性のためサポート）
+- デバッグコメント・コンソール出力を除去
+- ドキュメントを更新（README.md、readme.txt、管理画面）
 
 ### Version 1.0.0 (2025-09-25)
 - 初回リリース

@@ -5,6 +5,20 @@ All notable changes to Kashiwazaki SEO Link Weaver will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-10-07
+
+### Added
+- `idonly="on"` parameter for outputting only data attributes (also supports "1" for compatibility)
+- Support for custom HTML elements with link functionality
+
+### Improved
+- Removed debug comments and console output from JavaScript
+- Updated documentation (README.md, readme.txt, admin panel usage guide)
+- Cleaned up codebase for production use
+
+### Changed
+- Made `text` attribute optional when using `idonly="on"`
+
 ## [1.0.0] - 2025-09-25
 
 ### Added
